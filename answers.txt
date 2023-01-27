@@ -4,52 +4,63 @@ Binary search
 **Question**
 How many comparisons does firstIndexOf use at most for an array of:
 a) 10 elements?
+Answer: 4
 b) 100 elements?
+Answer: 7
 c) 1,000 elements?
+Answer: 10
 d) 1,000,000 elements?
+Answer: 20
 
 Hint: You can count the comparisons using a debugger to step through your program line-by-line.
 
-TODO
 
 **Question**
 How many comparisons would firstIndexOf need for 1,000,000,000,000 elements?
 (This is way too big for your computer's memory!)
 Justify your answer.
 
-TODO
+Answer: For 1,000,000,000,000 elements firstIndexOf would need, at worst, 40 comparisons. This is because the complexity of this method
+    is that of log2(n). It seems for every "three zeroes" (1,000/1,000,000 etc) you add 10 comparisons for binary search.
+
 
 Appendix: general information
 =============================
 
 **Question**
 How many hours did you spend on the assignment?
+Answer: Approximately 5 hours.
 
-TODO
 
 **Questions**
 Which of the three spoilers did you use?
+Answer: I initially used none of them. But in the end I needed to use 2 of them.
 
-TODO
 
 **Question**
 Do you know of any bugs or limitations?
 
-TODO
+Answer: I am not sure of any bugs, but a limitation of the code would be that it uses binary search, and thus requires the arrays to be
+    sorted beforehand. If the array is not sorted beforehand then the methods will not do what we want them to.
+
 
 **Question**
 Did you collaborate with any other students on this lab?
 If so, write with whom and in what way you collaborated.
 Also list any resources (including the web) you have used in creating your design.
 
-TODO
+Answer: I did not collaborate with other students. I did however use the previously posted videos on canvas regarding binary search in order
+    to gain further understanding of the problem. I also did some of the recursive practice examples on canvas.
+
 
 **Question**
 Did you encounter any serious problems?
 
-TODO
+Answer: No, not really. I initially had some trouble grasping the structure of the recursive method though.
+
 
 **Question**
 What is your feedback on this assignment?
 
-TODO
+Answer: I think this was good as a first assignment. Not too easy and not too difficult. Also good to get more practice using git.
+
