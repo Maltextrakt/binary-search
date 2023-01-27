@@ -8,52 +8,53 @@ public class BinarySearch {
   // * Required complexity: O(log(n)) comparisons where n is the length of `a`.
 
   // Check if the array `a` contains the given search key.
+  //Gör om contains till recursive
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
-    int lo = 0;
-    int hi = a.length-1;
+    return contains(a, key, comparator, 0, a.length - 1);
+  }
+
+  public static <T> boolean contains(T[] a, T key, Comparator<T> comparator, int lo, int hi) {
     int mid = (lo + hi)/2;
     int c = comparator.compare(a[mid], key);
 
-    while(hi>=lo){
-      if(c<0) {
-        lo = mid + 1;
-        mid = (lo + hi) / 2;
-        c = comparator.compare(a[mid], key);
+    if(lo>hi){
+      return false;
       }
-      else if(c>0){
-        hi = mid -1;
-        mid = (lo+hi)/2;
-        c = comparator.compare(a[mid], key);
-      }
-      else{
-        return true;
-      }
+    if (c==0){
+      return true;
     }
-    return false;
+    else if(c>0){
+      return contains(a, key, comparator, lo, mid -1);
+    }
+    else{
+      return contains(a, key, comparator, mid + 1, hi);
+    }
   }
+
+    //skapa ny Helper metod för att göra Contains recursive
+  //all logik ska finnas i helper metoden
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
     int lo = 0;
     int hi = a.length-1;
-    int mid = (lo + hi)/2;
-    int c = comparator.compare(a[mid], key);
-    int k = comparator.compare(a[mid-1], key);
+    int index = -1;
 
     while(hi>=lo){
-      if(mid == 0 || k<0 && c == 0) {
-        return mid;
+      int mid = (lo + hi)/2;
+      int c = comparator.compare(a[mid], key);
+
+      if(c>=0){
+        hi = mid - 1;
       }
-      else if(c<0){
-        lo = mid +1;
-        c = comparator.compare(a[mid], key);
+      else{
+        lo = mid + 1;
       }
-      else if(c>0){;
-        hi = mid -1;
-        c = comparator.compare(a[mid], key);
+      if(c==0){
+        index = mid;
       }
     }
-    return -1;
+    return index;
   }
 
   // Versions of the above functions that use the natural ordering of the type T.
