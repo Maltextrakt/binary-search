@@ -8,7 +8,6 @@ public class BinarySearch {
   // * Required complexity: O(log(n)) comparisons where n is the length of `a`.
 
   // Check if the array `a` contains the given search key.
-  //Gör om contains till recursive
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
     return contains(a, key, comparator, 0, a.length - 1);
   }
@@ -17,6 +16,9 @@ public class BinarySearch {
     int mid = (lo + hi)/2;
     int c = comparator.compare(a[mid], key);
 
+    if(a.length==0){
+      return false;
+    }
     if(lo>hi){
       return false;
       }
@@ -30,9 +32,6 @@ public class BinarySearch {
       return contains(a, key, comparator, mid + 1, hi);
     }
   }
-
-    //skapa ny Helper metod för att göra Contains recursive
-  //all logik ska finnas i helper metoden
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
