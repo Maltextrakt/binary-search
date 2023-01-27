@@ -9,6 +9,9 @@ public class BinarySearch {
 
   // Check if the array `a` contains the given search key.
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
+    if(a.length==0){
+      return false;
+    }
     return contains(a, key, comparator, 0, a.length - 1);
   }
 
@@ -16,9 +19,6 @@ public class BinarySearch {
     int mid = (lo + hi)/2;
     int c = comparator.compare(a[mid], key);
 
-    if(a.length==0){
-      return false;
-    }
     if(lo>hi){
       return false;
       }
